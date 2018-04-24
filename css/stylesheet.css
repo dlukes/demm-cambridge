@@ -1,0 +1,14 @@
+.content {
+  height: 100vh;
+  overflow: scroll;
+}
+
+#manuscript {
+  /* TODO: delete me */
+  background-color: red;
+  padding: 0;
+}
+
+#slides {
+  /* background-color: #fbf3ea; */
+}
