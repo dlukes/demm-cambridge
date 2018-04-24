@@ -1,7 +1,8 @@
 
 
              
-    var jZones=[{"color":"red","points":[{"x":464,"y":679},{"x":736,"y":679},{"x":733,"y":729},{"x":470,"y":739}]},{"color":"red","points":[{"x":546,"y":793},{"x":584,"y":791},{"x":574,"y":833},{"x":540,"y":831}]},{"color":"red","points":[{"x":1282,"y":1341},{"x":1441,"y":1333},{"x":1449,"y":1408},{"x":1292,"y":1394}]},{"color":"red","points":[{"x":1322,"y":1905},{"x":1494,"y":1909},{"x":1486,"y":1966},{"x":1306,"y":1959}]}];     
+    var jZones=[{"color":"rgba(255, 0, 0, 0.5)","points":[{"x":464,"y":679},{"x":736,"y":679},{"x":733,"y":729},{"x":470,"y":739}],"cats":["print"]},{"color":"rgba(0, 255, 255, 0.5)","points":[{"x":546,"y":793},{"x":584,"y":791},{"x":574,"y":833},{"x":540,"y":831}],"cats":["initial"]},{"color":"rgba(255, 255, 0, 0.5)","points":[{"x":1282,"y":1341},{"x":1441,"y":1333},{"x":1449,"y":1408},{"x":1292,"y":1394}],"cats":["gloss"]},{"color":"rgba(255, 255, 0, 0.5)","points":[{"x":1322,"y":1905},{"x":1494,"y":1909},{"x":1486,"y":1966},{"x":1306,"y":1959}],"cats":["gloss"]}]
+
     var zm=parseFloat(1);         
         loadImg({url:"test.jpeg",size:[1601,2514]});    
         
@@ -19,11 +20,31 @@ jZones.forEach(function(zone){
                   $("#msCanvas").attr({"width":img.size[0]+"px","height":img.size[1]+"px"}); 
              }
              
+
+function dspZones()
+{
+  jZones.forEach(function(zone){
+    drawPolygon(zone,false);
+});  
+ 
+    $("#hideZones").css({"display":"block"});
+     $("#dspZones").css({"display":"none"});
+}
+
+function hideZones()
+{
+   ctx.clearRect(0,0,c.width, c.height); 
+    $("#hideZones").css({"display":"none"});
+     $("#dspZones").css({"display":"block"});
+
+}
              
      function drawPolygon(zone, clear)
         {
+            console.log(clear);
             if(clear==true)
                 {
+                    
                  ctx.clearRect(0,0,c.width, c.height); 
                 }
        
@@ -31,7 +52,7 @@ jZones.forEach(function(zone){
         
             
      ctx.fillStyle=zone.color;
-     ctx.globalAlpha=0.3;
+    // ctx.globalAlpha=0.3;
             
            ctx.beginPath();
             ctx.moveTo(zone.points[0].x,zone.points[0].y);
@@ -47,7 +68,7 @@ jZones.forEach(function(zone){
             
         }  
     
-    function locatePolygon(zone, mouse)
+    function locatePolygon(zone, mouse, clbck)
         {
   
         var points=zone.points;
@@ -71,7 +92,7 @@ jZones.forEach(function(zone){
          if (ctx.isPointInPath(mouse.offsetX, mouse.offsetY)) 
             {
              
-             drawPolygon(zone,false);
+             clbck(zone,true);
              //  transcribe(zone,mouse);
             }
 
@@ -88,12 +109,14 @@ jZones.forEach(function(zone){
        
         console.log( $(canvas).css("width"));
         }
-             
+  var cClbck=drawPolygon;  
+
+//cClbck=function(zone, e, cl){alert(zone.color)};
              
     $("#msCanvas").click(function(e){
        jZones.forEach(function(zn){
           // console.log(e.offsetY +"-"+e.clientY+"-"+e.pageY);
-         locatePolygon(zn, e);
+         locatePolygon(zn, e, cClbck);
   
        });
     });
