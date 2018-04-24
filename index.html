@@ -16,47 +16,99 @@
       <div class="row">
 
         <div id="manuscript" class="content col-8">
-             <canvas id="msCanvas"  width="1024px" height="1550px" style="border:2px solid black; background-color:transparent'); background-image:url('')">
-        </canvas>
-            
-          
+          <canvas id="msCanvas"  width="1024px" height="1550px" style="border:2px solid black;
+            background-color:transparent'); background-image:url('')"></canvas>
         </div>
-          
-          
 
-        <div id="slides" class="content col-4">
-          <h1>Commentary on Luke</h1>
+        <div id="sidebar" class="col col-4">
 
-          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" id="pills-guided-tab" data-toggle="pill" href="#pills-guided"
-                role="tab" aria-controls="pills-guided" aria-selected="true">
-                Guided tour
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="pills-freeform-tab" data-toggle="pill" href="#pills-freeform"
-                role="tab" aria-controls="pills-freeform" aria-selected="false">
-                Freeform exploration
-              </a>
-            </li>
-          </ul>
-
-          <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-guided" role="tabpanel"
-              aria-labelledby="pills-guided-tab">
-              Prepare to be amazed by the story of this manuscript!
-            </div>
-
-            <div class="tab-pane fade" id="pills-freeform" role="tabpanel"
-              aria-labelledby="pills-freeform-tab">
-              Prepare to explore this manuscript on your own!
-            </div>
-
+          <div id="sidebar-top" class="content">
+            <h1>Commentary on Luke</h1>
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="pills-guided-tab" data-toggle="pill" href="#pills-guided"
+                  role="tab" aria-controls="pills-guided" aria-selected="true">
+                  Guided tour
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="pills-freeform-tab" data-toggle="pill" href="#pills-freeform"
+                  role="tab" aria-controls="pills-freeform" aria-selected="false">
+                  Freeform exploration
+                </a>
+              </li>
+            </ul>
           </div>
+
+          <div id="sidebar-middle" class="content border-top border-bottom">
+            <div class="tab-content" id="pills-tabContent">
+              <div class="tab-pane fade show active" id="pills-guided" role="tabpanel"
+                aria-labelledby="pills-guided-tab">
+                <p>
+                  Prepare to be amazed by the story of this manuscript!
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                  deserunt mollit anim id est laborum.
+                </p>
+                <p>
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+                  veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+                  voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+                  magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+                  qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non
+                  numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                  voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                  suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum
+                  iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,
+                  vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                  deserunt mollit anim id est laborum.
+                  </p>
+              </div>
+
+              <div class="tab-pane fade" id="pills-freeform" role="tabpanel"
+                aria-labelledby="pills-freeform-tab">
+                Prepare to explore this manuscript on your own!
+              </div>
+            </div>
+          </div>
+
+          <div id="sidebar-bottom" class="justify-content-center">
+            <div class="btn-group btn-group-toggle align-self-center" data-toggle="buttons">
+              <label class="btn btn-secondary active">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked>1
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option2" autocomplete="off">2
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option3" autocomplete="off">3
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option4" autocomplete="off">4
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option5" autocomplete="off">5
+              </label>
+            </div>
+          </div>
+
         </div>
+
       </div>
-        
+
            <button class=zoom onClick="zoomChng(0.1)" id="zoomIn">+</button><button class=zoom onClick="zoomChng(-0.1)" id="zoomOut">-</button>
     </div>
 

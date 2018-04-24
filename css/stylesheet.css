@@ -1,16 +1,28 @@
-.content {
+.col {
   height: 100vh;
+}
+
+.content {
   overflow: scroll;
 }
 
 #manuscript {
-  /* TODO: delete me */
-  background-color: red;
   padding: 0;
+  height: 100vh;
 }
 
-#slides {
-  /* background-color: #fbf3ea; */
+#sidebar-top {
+  height: 15vh;
+  overflow-x: hidden;
+}
+
+#sidebar-middle {
+  height: 77vh;
+}
+
+#sidebar-bottom {
+  height: 8vh;
+  display: flex;
 }
 
 .zoom{position:fixed, width:2em; height:2em; font-weight:bold}
