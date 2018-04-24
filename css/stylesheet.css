@@ -25,8 +25,9 @@
   display: flex;
 }
 
-.zoom{position:fixed, width:2em; height:2em; font-weight:bold}
-#zoomIn{left:0; top:0}
-#zoomOut{left:3em; top:0}
-
-
+.zoom{
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  opacity: .8;
+}
