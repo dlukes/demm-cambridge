@@ -1,0 +1,24 @@
+{
+  "name": "demm-cambridge",
+  "authors": [
+    "David Lukes <dafydd.lukes@gmail.com>"
+  ],
+  "description": "Medieval manuscript exploration for casual learners",
+  "main": "",
+  "license": "GPLv3",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "v4",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.0",
+    "components-font-awesome": "^5.0.6"
+  }
+}
