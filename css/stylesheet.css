@@ -9,6 +9,8 @@
   padding: 0;
 }
 
+#msCanvas, manuscript{transition:transform 1s}
+
 #slides {
   /* background-color: #fbf3ea; */
 }

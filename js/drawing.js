@@ -1,30 +1,27 @@
 
 
-             
-    var jZones=[{"color":"rgba(255, 0, 0, 0.5)","points":[{"x":464,"y":679},{"x":736,"y":679},{"x":733,"y":729},{"x":470,"y":739}],"cats":["print"]},{"color":"rgba(0, 255, 255, 0.5)","points":[{"x":546,"y":793},{"x":584,"y":791},{"x":574,"y":833},{"x":540,"y":831}],"cats":["initial"]},{"color":"rgba(255, 255, 0, 0.5)","points":[{"x":1282,"y":1341},{"x":1441,"y":1333},{"x":1449,"y":1408},{"x":1292,"y":1394}],"cats":["gloss"]},{"color":"rgba(255, 255, 0, 0.5)","points":[{"x":1322,"y":1905},{"x":1494,"y":1909},{"x":1486,"y":1966},{"x":1306,"y":1959}],"cats":["gloss"]}]
-
-    var zm=parseFloat(1);         
-        loadImg({url:"test.jpeg",size:[1601,2514]});    
+//initialize canvas            
+  loadImg(img); 
         
-    //initialize canvas
-     var c=document.getElementById("msCanvas");
-     var ctx=c.getContext("2d");
+  var c=document.getElementById("msCanvas");
+  var ctx=c.getContext("2d");
 
-jZones.forEach(function(zone){
-   // drawPolygon(zone,false);
-});
-             
-        function loadImg(img)
-             {
-                $("#msCanvas").css({"background-image":"url('img/"+img.url+"')"}); 
-                  $("#msCanvas").attr({"width":img.size[0]+"px","height":img.size[1]+"px"}); 
-             }
-             
 
+//FUNCTIONS
+
+//initialization
+function loadImg(img)
+ {
+    $("#msCanvas").css({"background-image":"url('img/"+img.url+"')"}); 
+    $("#msCanvas").attr({"width":img.size[0]+"px","height":img.size[1]+"px"}); 
+ }
+
+// displaying zones
 function dspZones()
 {
+    clear=false;
   jZones.forEach(function(zone){
-    drawPolygon(zone,false);
+    drawPolygon(zone);
 });  
  
     $("#hideZones").css({"display":"block"});
@@ -33,15 +30,16 @@ function dspZones()
 
 function hideZones()
 {
+    clear=true;
    ctx.clearRect(0,0,c.width, c.height); 
     $("#hideZones").css({"display":"none"});
      $("#dspZones").css({"display":"block"});
 
 }
              
-     function drawPolygon(zone, clear)
+function drawPolygon(zone)
         {
-            console.log(clear);
+        //    console.log(clear);
             if(clear==true)
                 {
                     
@@ -67,8 +65,10 @@ function hideZones()
             ctx.fill();
             
         }  
-    
-    function locatePolygon(zone, mouse, clbck)
+
+//detecting user interation
+
+function locatePolygon(zone, mouse, clbck)
         {
   
         var points=zone.points;
@@ -81,7 +81,7 @@ function hideZones()
             
             for(p=1;p<points.length;p++)
             {
-                console.log(zone);
+              //  console.log(zone);
                 ctx.lineTo(parseInt(points[p].x), parseInt(points[p].y));
                 
                 //console.log(points[p].x+":"+ points[p].y);
@@ -99,20 +99,48 @@ function hideZones()
      
         }
 
+//zooming and scrolling
     
-        function zoomChng(zChng)
-        {
-            console.log(zChng);
-            zm+=parseFloat(zChng); 
-            
-            $("#msCanvas").css({"transform":"scale("+zm+","+zm+")"});
-       
-        console.log( $(canvas).css("width"));
-        }
-  var cClbck=drawPolygon;  
+function zoomChng(zChng)
+{
+   // console.log(zChng);
+    zm+=parseFloat(zChng); 
 
-//cClbck=function(zone, e, cl){alert(zone.color)};
-             
+    $("#msCanvas").css({"transform":"scale("+zm+","+zm+")"});
+
+
+}
+
+function moveScreen(xy, ox, oy)
+{
+     console.log(xy.x+"//"+xy.y);
+
+    var x=Math.max(0,xy.x-ox)-300;
+    var y=Math.max(0,xy.y-oy)-400;
+
+    console.log(x+"-ss-"+y);
+
+    document.getElementById("manuscript").scrollTop=y;
+    document.getElementById("manuscript").scrollLeft=x;
+
+
+}
+    
+
+function focusOn(zone, e, cl){
+    zm=parseFloat(1);
+    zoomChng(0.8);
+    moveScreen(zone.points[0],200,200);
+                            
+                };
+ 
+//set functions
+cClbck=drawPolygon;
+
+
+
+//jQuery event handlers
+
     $("#msCanvas").click(function(e){
        jZones.forEach(function(zn){
           // console.log(e.offsetY +"-"+e.clientY+"-"+e.pageY);
@@ -120,4 +148,24 @@ function hideZones()
   
        });
     });
+
+ $("#dspZones").click(function(e){
+       dspZones();
+       });
+  
+       
+$("#hideZones").click(function(e){
+       hideZones();
+       });
+   
+
+$("#pills-guided-tab").click(function(e){
+       cClbck=drawPolygon;
+       });
+  
+
+$("#pills-freeform-tab").click(function(e){
+       cClbck=focusOn;
+       });
+  
        
