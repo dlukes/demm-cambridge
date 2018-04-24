@@ -12,3 +12,9 @@
 #slides {
   /* background-color: #fbf3ea; */
 }
+
+.zoom{position:fixed, width:2em; height:2em; font-weight:bold}
+#zoomIn{left:0; top:0}
+#zoomOut{left:3em; top:0}
+
+
