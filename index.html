@@ -43,6 +43,12 @@
                   Freeform exploration
                 </a>
               </li>
+                  <li class="nav-item">
+                <a class="nav-link" id="pills-notes-tab" data-toggle="pill" href="#pills-notes"
+                  role="tab" aria-controls="pills-notes" aria-selected="false">
+                  Notes
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -56,6 +62,12 @@
               <div class="tab-pane fade" id="pills-freeform" role="tabpanel"
                 aria-labelledby="pills-freeform-tab">
                 Prepare to explore this manuscript on your own!
+              </div>
+                
+                <div class="tab-pane fade" id="pills-notes" role="tabpanel"
+                aria-labelledby="pills-notes-tab">
+               Here is what you already learnt.
+                    <div id="mapCanvas"></div>
               </div>
             </div>
           </div>
@@ -93,10 +105,12 @@
     <script src="bower_components/vue-router/dist/vue-router.js"></script>
     <script src="js/presentation.js"></script>
     <script src="js/settings.js"></script>
-    <script src="js/drawing.js"></script>
+
+    <script src="js/index.js"></script>
+      
     <script src="js/map.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgcsHaIOgbICW2W9b6ohiJbz8QAnLtWsI&callback=initMap"
    type="text/javascript"></script>
-    <script src="js/index.js"></script>
+          <script src="js/drawing.js"></script>
   </body>
 </html>
