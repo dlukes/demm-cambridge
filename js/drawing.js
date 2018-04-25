@@ -6,6 +6,7 @@
   var c=document.getElementById("msCanvas");
   var ctx=c.getContext("2d");
 
+nextSlide(slides[0]);
 
 //FUNCTIONS
 
@@ -42,14 +43,18 @@ function drawPolygon(zone)
         //    console.log(clear);
             if(clear==true)
                 {
-                    
                  ctx.clearRect(0,0,c.width, c.height); 
                 }
        
          console.log("drawing");
+            console.log(zone);
         
             
-     ctx.fillStyle=zone.color;
+    // ctx.fillStyle=zone.color;
+            ctx.fillStyle="rgba(0,0,0,0.8)";
+            
+    ctx.fillRect(0,0,c.width, c.height); 
+    ctx.globalCompositeOperation="destination-out";
     // ctx.globalAlpha=0.3;
             
            ctx.beginPath();
@@ -64,6 +69,7 @@ function drawPolygon(zone)
             ctx.closePath();
             ctx.fill();
             
+         ctx.globalCompositeOperation="source-over";   
         }  
 
 //detecting user interation
@@ -92,7 +98,7 @@ function locatePolygon(zone, mouse, clbck)
          if (ctx.isPointInPath(mouse.offsetX, mouse.offsetY)) 
             {
              
-             clbck(zone,true);
+             clbck(zone);
              //  transcribe(zone,mouse);
             }
 
@@ -127,7 +133,7 @@ function moveScreen(xy, ox, oy)
 }
     
 
-function focusOn(zone, e, cl){
+function focusOn(zone){
     zm=parseFloat(1);
     zoomChng(0.8);
     moveScreen(zone.points[0],200,200);
@@ -135,11 +141,13 @@ function focusOn(zone, e, cl){
                 };
  
 //set functions
-cClbck=drawPolygon;
+
 
 
 
 //jQuery event handlers
+//$("#instruction").html(slides[0].instruction);
+console.log(slides[0].instruction);
 
     $("#msCanvas").click(function(e){
        jZones.forEach(function(zn){
@@ -160,7 +168,7 @@ $("#hideZones").click(function(e){
    
 
 $("#pills-guided-tab").click(function(e){
-       cClbck=drawPolygon;
+       cClbck=evalAnswer;
        });
   
 

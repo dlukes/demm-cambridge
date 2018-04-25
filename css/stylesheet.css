@@ -9,6 +9,8 @@
   padding: 0;
 }
 
+#mapCanvas{width:600px; height:600px; border:2px solid grey}
+
 #msCanvas, manuscript{transition:transform 1s}
 
 #slides {
