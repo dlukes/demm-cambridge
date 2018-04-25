@@ -1,7 +1,9 @@
 const pages = [
   // a presentation consists of pages, corresponding to the scanned pages of a manuscript
   {
+
       img:{url:"luke_93V.jpeg",size:[1651,2514]},
+
     // each page can be explored in a number of slides
     slides: [
       {
@@ -22,6 +24,7 @@ One of the ways the manuscript differs from a modern printed book is the absence
               // zoom onto
               focusOn(jZones[4]);
             }
+
           },
           {
             content: `

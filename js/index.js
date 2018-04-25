@@ -1,15 +1,19 @@
-const pos_feedback = new Set([
+const pos_feedback = [
   "That's it!",
   "Well done!",
   "Good job!",
   "Way to go!",
-]);
-const neg_feedback = new Set([
+];
+const neg_feedback = [
   "Try again!",
   "Good guess, but that's not quite it!",
   "Keep trying!",
   "Better luck next time!",
-]);
+];
+
+function getRandom(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 
 // const NextButton = Vue.component("button-next", {
 //   template: `
@@ -33,7 +37,8 @@ const Presentation = Vue.component("presentation", {
   template: `
 <div>
 <p v-for="f in fragments">{{ f }}</p>
-<router-link :to="{ name: 'main', params: { page: next_page, slide: next_slide, fragment: next_fragment }}">Next</router-link>
+<p :class="feedback_class">{{ feedback_message }}</p>
+<router-link :class="next_link_class" :to="{ name: 'main', params: { page: next_page, slide: next_slide, fragment: next_fragment }}">Next</router-link>
 </div>
 `,
   data() {
@@ -42,33 +47,23 @@ const Presentation = Vue.component("presentation", {
       fragments: [],
       next_page: 0,
       next_slide: 0,
-      next_fragment: 0
+      next_fragment: 0,
+      next_link_class: "",
+      feedback_message: "",
+      feedback_class: ""
     };
   },
   methods: {
     updateFragment(params) {
+      // hideZones();
       let page = parseInt(params.page);
+      loadImg(pages[page].img);
       let slide = parseInt(params.slide);
       let fragment = parseInt(params.fragment);
       let slides = pages[page].slides;
       let fragments = slides[slide].fragments;
       let display_fragments = fragments.slice(0, fragment + 1).map(e => e.content);
       last_fragment = fragments[fragment];
-      if (last_fragment.hasOwnProperty("enter")) {
-        last_fragment.enter();
-      }
-      let canvas = $("#msCanvas");
-      if (last_fragment.hasOwnProperty("zone")) {
-        console.log("ADDING CANVAS CLICK HANDLER");
-        canvas.click(function(e) {
-          let p = locatePolygon(e);
-          drawPolygon(p);
-        });
-      } else {
-        // TODO: remove possible existing click handlers on canvas
-        // TODO: hide next router-link
-      }
-      this.fragments = display_fragments;
       // set up link to next fragment
       if (hasNext(fragments, fragment)) {
         this.next_fragment = fragment + 1;
@@ -80,6 +75,31 @@ const Presentation = Vue.component("presentation", {
         this.next_slide = 0;
         this.next_fragment = 0;
       }
+      if (last_fragment.hasOwnProperty("enter")) {
+        console.log("Running enter function");
+        last_fragment.enter();
+      }
+      canvas = $("#msCanvas");
+      if (last_fragment.hasOwnProperty("zones")) {
+        console.log("ADDING CANVAS CLICK HANDLER");
+        this.next_link_class = "d-none";
+        canvas.click(e => {
+          poly = locatePolygon(e);
+          if (poly !== undefined && last_fragment.zones.includes(poly.id)) {
+            drawPolygon(poly);
+            this.feedback_message = getRandom(pos_feedback);
+            this.feedback_class = "text-success";
+            this.next_link_class = "";
+          } else {
+            this.feedback_message = getRandom(neg_feedback);
+            this.feedback_class = "text-warning";
+          }
+        });
+      } else {
+        canvas.click = undefined;
+      }
+      this.fragments = display_fragments;
+      this.feedback_message = "";
     }
   },
   created() {
@@ -102,6 +122,6 @@ const router = new VueRouter({
 });
 
 const app = new Vue({
-  el: "#app",
+  el: "#sidebar",
   router
 });
