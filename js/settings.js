@@ -27,6 +27,18 @@ var slides=[{id:"s1",
              zones:[{id:"z3","color":"rgba(255, 255, 0, 0.5)","points":[{"x":1282,"y":1341},{"x":1441,"y":1333},{"x":1449,"y":1408},{"x":1292,"y":1394}],"cats":["gloss"]},{id:"z4","color":"rgba(255, 255, 0, 0.5)","points":[{"x":1322,"y":1905},{"x":1494,"y":1909},{"x":1486,"y":1966},{"x":1306,"y":1959}],"cats":["gloss"]}]
             }];
 
+
+var extras=[
+    {id:"monastery", type:"place", data:{name:"Lindisfarne Priory", coords:[55.6691551,-1.8008945,15], description:"The famous Lindisfarne monastery"}},
+    {id:"Hippone", type:"place", data:{name:"Hippone", coords:[36.883233,7.7518818,15], description:"This is where Augustine served as a bishop."}},
+     {id:"Milan", type:"place", data:{name:"Milan", coords:[45.4626482,9.0376489,11], description:"This is where Ambrose served as a bishop."}},
+     {id:"jarrow", type:"place", data:{name:"St Peter's Church", coords:[54.9131231,-1.3748445,15], description:"The Church in Jarrow where Bede worked."}},
+    {id:"Augustine", type:"person", data:{name:"Saint Augustine", description:"A very important philosopher and bishop of Hippone", img:"Augustine.jpg"}},
+     {id:"Bede", type:"person", data:{name:"Bede", description:"The author of the Anglo-saxon chronicle", img:"Bede.jpg"}},
+    {id:"Ambrose", type:"person", data:{name:"Saint Ambrose", description:"Boshop of Milan", img:"Ambrose.jpg"}}
+    
+];
+
 var jZones=[
     {
         "id": "rubrication1",

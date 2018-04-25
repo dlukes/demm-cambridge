@@ -37,7 +37,7 @@ function hideZones()
      $("#dspZones").css({"display":"block"});
 
 }
-             
+        
 function drawPolygon(zone)
         {
         //    console.log(clear);
@@ -163,12 +163,7 @@ function focusOut(){
 var zn;
 console.log("setting jQuery event handlers");
 
-    $("#msCanvas").click(function(e){
-     
-         zn= locatePolygon(e);
-        drawPolygon(zn);
-  
-    });
+
 
  $("#dspZones").click(function(e){
        dspZones();
