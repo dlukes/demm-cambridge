@@ -39,6 +39,25 @@ var extras=[
     
 ];
 
+
+function findZones(attr, val)
+{
+    var rZones=[];
+    
+    jZones.forEach(function(z){
+        if(z[attr]==val)
+            {
+                rZones.push(z);
+            }
+        
+    });
+    
+    console.log("zString: "+rZones.toString());
+  
+    return rZones;
+}
+
+
 var jZones=[
     {
         "id": "rubrication1",
@@ -97,9 +116,7 @@ var jZones=[
                 "y": 363
             }
         ],
-        "cats": [
-            "rubrication"
-        ]
+        "cat":"rubrucation"
     },
     {
         "id": "rubrication2",
@@ -146,9 +163,7 @@ var jZones=[
                 "y": 1132
             }
         ],
-        "cats": [
-            "rubrication"
-        ]
+       "cat":"rubrication"
     },
     {
         "id": "gloss",
@@ -183,9 +198,7 @@ var jZones=[
                 "y": 1585
             }
         ],
-        "cats": [
-            "gloss"
-        ]
+        "cat":"gloss"
     },
     {
         "id": "rubrication_ambrose",
@@ -244,9 +257,7 @@ var jZones=[
                 "y": 683
             }
         ],
-        "cats": [
-            "rubrication"
-        ]
+        "cat":"rubrication"
     },
     {
         "id": "paramark1",
@@ -281,9 +292,9 @@ var jZones=[
                 "y": 383
             }
         ],
-        "cats": [
+        "cat":
             "paramark"
-        ]
+        
     },
     {
         "id": "paramark2",
@@ -310,9 +321,9 @@ var jZones=[
                 "y": 1121
             }
         ],
-        "cats": [
+        "cat": 
             "paramark"
-        ]
+        
     },
     {
         "id": "paramark3",
@@ -347,9 +358,9 @@ var jZones=[
                 "y": 697
             }
         ],
-        "cats": [
+        "cat": 
             "paramark"
-        ]
+        
     },
     {
         "id": "paramark4",
@@ -384,9 +395,9 @@ var jZones=[
                 "y": 1873
             }
         ],
-        "cats": [
+        "cat": 
             "paramark"
-        ]
+        
     },
     {
         "id": "vertical_line",
@@ -408,7 +419,7 @@ var jZones=[
                 "y": 1854
             }
         ],
-        "cats": []
+        "cat":"lines" 
     },
     {
         "id": "crossed_lines1",
@@ -431,9 +442,9 @@ var jZones=[
                 "y": 1722
             }
         ],
-        "cats": [
-            "rubrication"
-        ]
+        "cat": 
+            "lines"
+        
     },
     {
         "id": "crossed_lines2",
@@ -456,9 +467,9 @@ var jZones=[
                 "y": 1945
             }
         ],
-        "cats": [
-            "rubrication"
-        ]
+        "cat": 
+            "lines"
+        
     },
     {
         "id": "crossed_lines3",
@@ -481,9 +492,9 @@ var jZones=[
                 "y": 2057
             }
         ],
-        "cats": [
-            "gloss"
-        ]
+        "cat": 
+            "lines"
+        
     },
     {
         "id": "manicule1",
@@ -514,12 +525,12 @@ var jZones=[
                 "y": 1512
             }
         ],
-        "cats": [
-            "rubrication"
-        ]
+        "cat": 
+            "manicule"
+        
     },
     {
-        "id": "paramark1",
+        "id": "rubrication5",
         "color": "rgba(0, 255, 0, 0.5)",
         "points": [
             {
@@ -571,9 +582,9 @@ var jZones=[
                 "y": 1462
             }
         ],
-        "cats": [
-            "paramark"
-        ]
+        "cat": 
+            "rubrication"
+        
     }
 ];
 

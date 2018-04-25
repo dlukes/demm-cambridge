@@ -14,8 +14,9 @@
 
 #mapCanvas{width:600px; height:600px; border:2px solid grey}
 
-#msCanvas, manuscript{transition:transform .5s}
+#msCanvas, manuscript{transition:transform .5s; transform-origin:top left}
 
+#msCanvas{position:relative; left:0; top:0;}
 
 #sidebar-top {
   height: 15vh;
