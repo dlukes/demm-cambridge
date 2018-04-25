@@ -76,7 +76,7 @@ function drawPolygon(zone)
 
 function locatePolygon(mouse)
         {
-           
+        var rZone;   
        jZones.forEach(function(zone, zid){
            
         var points=zone.points;
@@ -99,14 +99,14 @@ function locatePolygon(mouse)
            
          if (ctx.isPointInPath(mouse.offsetX, mouse.offsetY)) 
             {
-             
-             return zone;
+             rZone=zone;
+           
              
             }
   
        });
   
-        
+        return rZone;
 
      
         }
@@ -160,12 +160,13 @@ function focusOut(){
 
 //jQuery event handlers
 //$("#instruction").html(slides[0].instruction);
-
+var zn;
 console.log("setting jQuery event handlers");
 
     $("#msCanvas").click(function(e){
      
-         locatePolygon(e, cClbck);
+         zn= locatePolygon(e);
+        drawPolygon(zn);
   
     });
 
