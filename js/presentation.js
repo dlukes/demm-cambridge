@@ -1,8 +1,3 @@
-const zones = {
-  z1: {
-    points: [{"x":464,"y":679},{"x":736,"y":679},{"x":733,"y":729},{"x":470,"y":739}]
-  }
-};
 const pages = [
   // a presentation consists of pages, corresponding to the scanned pages of a manuscript
   {
@@ -18,17 +13,13 @@ Hey there!
           },
           {
             content: `
-Hey there number two!
+Hey there number two! Identify the rubrication.
 `,
             enter: function() {
               // zoom onto
-              focusOn(zones.z1);
+              focusOn(jZones[0]);
             },
-            next: function(event) {
-              // custom next action (e.g. locate an element in manuscript)
-              locatePolygon(zones.z1, event, focusOn);
-              console.log(event);
-            }
+            zone: "rubrication1"
           },
           {
             content: `

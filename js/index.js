@@ -53,14 +53,17 @@ const Presentation = Vue.component("presentation", {
       let slides = pages[page].slides;
       let fragments = slides[slide].fragments;
       let display_fragments = fragments.slice(0, fragment + 1).map(e => e.content);
-      let last_fragment = display_fragments[fragment];
+      last_fragment = fragments[fragment];
       if (last_fragment.hasOwnProperty("enter")) {
         last_fragment.enter();
       }
       let canvas = $("#msCanvas");
-      if (last_fragment.hasOwnProperty("next")) {
+      if (last_fragment.hasOwnProperty("zone")) {
         console.log("ADDING CANVAS CLICK HANDLER");
-        canvas.click(last_fragment.next);
+        canvas.click(function(e) {
+          let p = locatePolygon(e);
+          drawPolygon(p);
+        });
       } else {
         // TODO: remove possible existing click handlers on canvas
         // TODO: hide next router-link
