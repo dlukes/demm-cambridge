@@ -6,7 +6,7 @@
   var c=document.getElementById("msCanvas");
   var ctx=c.getContext("2d");
 
-nextSlide(slides[0]);
+
 
 //FUNCTIONS
 
@@ -147,12 +147,14 @@ function focusOn(zone){
 
 //jQuery event handlers
 //$("#instruction").html(slides[0].instruction);
-console.log(slides[0].instruction);
+
+console.log("setting jQuery event handlers");
 
     $("#msCanvas").click(function(e){
+      
        jZones.forEach(function(zn){
           // console.log(e.offsetY +"-"+e.clientY+"-"+e.pageY);
-         locatePolygon(zn, e, cClbck);
+         locatePolygon(zn, e, drawPolygon);
   
        });
     });
@@ -173,6 +175,7 @@ $("#pills-guided-tab").click(function(e){
   
 
 $("#pills-freeform-tab").click(function(e){
+    console.log("changing callback");
        cClbck=focusOn;
        });
   
