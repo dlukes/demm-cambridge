@@ -8,7 +8,7 @@ const neg_feedback = new Set([
   "Try again!",
   "Good guess, but that's not quite it!",
   "Keep trying!",
-  "Better luck nest time!",
+  "Better luck next time!",
 ]);
 
 const Presentation = Vue.component("presentation", {
