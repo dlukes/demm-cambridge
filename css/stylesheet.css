@@ -1,24 +1,40 @@
-.content {
+.col {
   height: 100vh;
+}
+
+.content {
   overflow: scroll;
 }
 
 #manuscript {
-  /* TODO: delete me */
-  background-color: red;
   padding: 0;
+  height: 100vh;
 }
+
 
 #mapCanvas{width:600px; height:600px; border:2px solid grey}
 
-#msCanvas, manuscript{transition:transform 1s}
+#msCanvas, manuscript{transition:transform .5s}
 
-#slides {
-  /* background-color: #fbf3ea; */
+
+#sidebar-top {
+  height: 15vh;
+  overflow-x: hidden;
+
 }
 
-.zoom{position:fixed, width:2em; height:2em; font-weight:bold}
-#zoomIn{left:0; top:0}
-#zoomOut{left:3em; top:0}
+#sidebar-middle {
+  height: 77vh;
+}
 
+#sidebar-bottom {
+  height: 8vh;
+  display: flex;
+}
 
+.zoom{
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  opacity: .8;
+}

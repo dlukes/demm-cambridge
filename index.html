@@ -4,104 +4,99 @@
     <meta charset="utf-8">
     <title>Commentary on Luke</title>
     <meta name="description" content="">
-    <link rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="css/stylesheet.css">
   </head>
   <body>
 
-    <div class="container-fluid">
+    <div id="app" class="container-fluid">
       <div class="row">
 
         <div id="manuscript" class="content col-8">
-             <canvas id="msCanvas"  width="1024px" height="1550px" style="border:2px solid black; background-color:transparent'); background-image:url('')">
-        </canvas>
-            
-          
-        </div>
-          
-          
-
-        <div id="slides" class="content col-4">
-          <h1>Commentary on Luke</h1>
-
-          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" id="pills-guided-tab" data-toggle="pill" href="#pills-guided"
-                role="tab" aria-controls="pills-guided" aria-selected="true">
-                Guided tour
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="pills-freeform-tab" data-toggle="pill" href="#pills-freeform"
-                role="tab" aria-controls="pills-freeform" aria-selected="false">
-                Freeform exploration
-              </a>
-            </li>
-               <li class="nav-item">
-              <a class="nav-link" id="pills-notes-tab" data-toggle="pill" href="#pills-notes"
-                role="tab" aria-controls="pills-notes" aria-selected="false">
-                Notes
-              </a>
-            </li>
-          </ul>
-
-          <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-guided" role="tabpanel"
-              aria-labelledby="pills-guided-tab">
-              Prepare to be amazed by the story of this manuscript!
-                
-              
-                
-                
-            </div>
-
-            <div class="tab-pane fade" id="pills-freeform" role="tabpanel"
-              aria-labelledby="pills-freeform-tab">
-              Prepare to explore this manuscript on your own!
-                
-                <button  id="dspZones">Show all</button>
-                <button  id="hideZones" style="display:none">Hide all</button>
-                
-            </div>
-              
-              <div class="tab-pane fade" id="pills-notes" role="tabpanel"
-              aria-labelledby="pills-notes-tab">
-              Here is what you have already learnt.
-                  
-                  <div id="mapCanvas"></div>
-                
-               
-            </div>
-
+          <canvas id="msCanvas"  width="1024px" height="1550px" style="border:2px solid black;
+            background-color:transparent'); background-image:url('')"></canvas>
+          <div class="btn-group zoom" role="group" aria-label="Manuscript zoom">
+            <button type="button" class="btn btn-secondary" onClick="zoomChng(0.1)" id="zoomIn">
+              <i class="fas fa-search-plus"></i>
+            </button>
+            <button type="button" class="btn btn-secondary" onClick="zoomChng(-0.1)" id="zoomOut">
+              <i class="fas fa-search-minus"></i>
+            </button>
           </div>
         </div>
+
+        <div id="sidebar" class="col col-4">
+
+          <div id="sidebar-top" class="content">
+            <h1>Commentary on Luke</h1>
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="pills-guided-tab" data-toggle="pill" href="#pills-guided"
+                  role="tab" aria-controls="pills-guided" aria-selected="true">
+                  Guided tour
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="pills-freeform-tab" data-toggle="pill" href="#pills-freeform"
+                  role="tab" aria-controls="pills-freeform" aria-selected="false">
+                  Freeform exploration
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div id="sidebar-middle" class="content border-top border-bottom">
+            <div class="tab-content" id="pills-tabContent">
+              <div class="tab-pane fade show active" id="pills-guided" role="tabpanel"
+                aria-labelledby="pills-guided-tab">
+                <router-view></router-view>
+              </div>
+
+              <div class="tab-pane fade" id="pills-freeform" role="tabpanel"
+                aria-labelledby="pills-freeform-tab">
+                Prepare to explore this manuscript on your own!
+              </div>
+            </div>
+          </div>
+
+          <div id="sidebar-bottom" class="justify-content-center">
+            <div class="btn-group btn-group-toggle align-self-center" data-toggle="buttons">
+              <label class="btn btn-secondary active">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked>1
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option2" autocomplete="off">2
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option3" autocomplete="off">3
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option4" autocomplete="off">4
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option5" autocomplete="off">5
+              </label>
+            </div>
+          </div>
+
+        </div>
+
       </div>
-        
-           <button class=zoom onClick="zoomChng(0.1)" id="zoomIn">+</button><button class=zoom onClick="zoomChng(-0.1)" id="zoomOut">-</button>
+
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"></script>
-      
-    
-       <script src="js/settings.js" async defer></script>
-     
-      <script src="js/script.js" async defer></script>
-         <script src="js/map.js" async defer></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgcsHaIOgbICW2W9b6ohiJbz8QAnLtWsI&callback=initMap"
-   type="text/javascript" async defer></script>
-   
-       <script src="js/drawing.js" async defer></script>
-     
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/popper.js/dist/umd/popper.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/vue/dist/vue.js"></script>
+    <script src="bower_components/vue-router/dist/vue-router.js"></script>
+    <script src="js/presentation.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/drawing.js"></script>
+    <script src="js/map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgcsHaIOgbICW2W9b6ohiJbz8QAnLtWsI&callback=initMap"
+   type="text/javascript"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>
