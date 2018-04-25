@@ -6,19 +6,42 @@ const pages = [
       {
         // slides are divided into fragments
         fragments: [
-          "Hey there!",
-          "This is a really nice interactive app for exploring manuscripts.",
-          "Feel free to poke around :)",
-          "Hey there!",
-          "This is a really nice interactive app for exploring manuscripts.",
-          "Feel free to poke around :)",
-          "Hey there!",
-          "This is a really nice interactive app for exploring manuscripts.",
-          "Feel free to poke around :)",
+          {
+            content: `
+Hey there!
+`
+          },
+          {
+            content: `
+Hey there number two! Identify the rubrication.
+`,
+            enter: function() {
+              // zoom onto
+              focusOn(jZones[0]);
+            },
+            zone: "rubrication1"
+          },
+          {
+            content: `
+This is a really nice interactive app for exploring manuscripts.
+`
+          },
+        ]
+      },
+      {
+        fragments: [
+          {
+            content: `
+Feel free to poke around :)
+`
+          },
+          {
+            content: `
+Really, do!
+`
+          },
         ]
       }
     ]
   },
-  {},
-  {},
 ];

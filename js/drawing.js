@@ -40,6 +40,8 @@ function hideZones()
         
 function drawPolygon(zone)
         {
+          var c=document.getElementById("msCanvas");
+          var ctx=c.getContext("2d");
         //    console.log(clear);
             if(clear==true)
                 {
@@ -60,7 +62,7 @@ function drawPolygon(zone)
            ctx.beginPath();
             ctx.moveTo(zone.points[0].x,zone.points[0].y);
             
-            for(p=1;p<zone.points.length;p++)
+            for(var p=1;p<zone.points.length;p++)
             {
                  //console.log(p);
                 ctx.lineTo(zone.points[p].x, zone.points[p].y);
@@ -152,37 +154,4 @@ function focusOut(){
                             
                 };
  
- 
-//set functions
 
-
-
-
-//jQuery event handlers
-//$("#instruction").html(slides[0].instruction);
-var zn;
-console.log("setting jQuery event handlers");
-
-
-
- $("#dspZones").click(function(e){
-       dspZones();
-       });
-  
-       
-$("#hideZones").click(function(e){
-       hideZones();
-       });
-   
-
-$("#pills-guided-tab").click(function(e){
-       cClbck=evalAnswer;
-       });
-  
-
-$("#pills-freeform-tab").click(function(e){
-    console.log("changing callback");
-       cClbck=focusOn;
-       });
-  
-       
