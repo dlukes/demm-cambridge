@@ -1,6 +1,7 @@
 const pages = [
   // a presentation consists of pages, corresponding to the scanned pages of a manuscript
   {
+    img: {url:"luke_93V.jpeg",size:[1651,2514]},
     // each page can be explored in a number of slides
     slides: [
       {
@@ -19,7 +20,7 @@ Hey there number two! Identify the rubrication.
               // zoom onto
               focusOn(jZones[0]);
             },
-            zone: "rubrication1"
+            zones: ["rubrication_ambrose"]
           },
           {
             content: `
