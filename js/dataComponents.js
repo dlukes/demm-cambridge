@@ -34,7 +34,7 @@ function zoneInfo(zone)
     
     $("#zoneInfo").append("<p>This is a <b>"+zone.cat+"</b></p><p><b>Transcription: </b>"+zone.transcr+"</p>");
     
-  $("#zoneInfo").append("<button class=btn-primary onClick='hideZones();drawPolygons(findZones(\"cat\",\""+zone.cat+"\"))'>Show</button>");
+  $("#zoneInfo").append("<button class='btn btn-primary' onClick='hideZones();drawPolygons(findZones(\"cat\",\""+zone.cat+"\"))'>Show</button>");
 }
 
 
