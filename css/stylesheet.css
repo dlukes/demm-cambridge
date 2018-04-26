@@ -59,7 +59,7 @@ div.person p,div.person h5{color:rgba(0,0,0,0.5); filter:blur(4px) }
 div.unlocked img{visibility:visible}
 div.unlocked p,div.unlocked h5{color:black; filter:blur(0) }
 
-.fragments-enter-active, .fragments-leave-active {
+.fragments-enter-active {
   transition: all 1s;
 }
 
@@ -67,21 +67,26 @@ div.zoneInfo{border:1px solid grey; margin:0.1em}
 
 strong{color:red}
 
-.fragments-enter, .fragments-leave-to {
+.fragments-enter {
   opacity: 0;
-  background-color: yellow;
   border-radius: 2rem;
-  transform: scale(2);
+  transform: translateX(-10rem);
 }
 
+/* TODO: smarter positioning */
 .prev-page {
   position: absolute;
   left: 1rem;
-  bottom: 1rem;
+  bottom: 2%;
 }
 
+/* TODO: smarter positioning */
 .next-page {
   position: absolute;
   right: 1rem;
-  bottom: 1rem;
+  bottom: 2%;
+}
+
+#tutorial-modal > div{
+  max-width: 650px;
 }

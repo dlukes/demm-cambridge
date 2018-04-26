@@ -160,4 +160,5 @@ const app = new Vue({
 
 $(document).ready(() => {
   scrollSlide();
+  $("#tutorial-modal").modal("show");
 });
