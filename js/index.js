@@ -71,7 +71,7 @@ const Presentation = Vue.component("presentation", {
 <transition-group name="fragments" tag="div">
 <p v-for="(f, idx) in fragments" v-bind:key="idx" v-html="f"></p>
 </transition-group>
-<p v-if="feedback_message" :class="feedback_class">{{ feedback_message }}</p>
+<p id="feedback-message" v-if="feedback_message" :class="feedback_class">{{ feedback_message }}</p>
 <router-link v-if="show_next"
   :to="{ name: 'main', params: { page: next_page, slide: next_slide, fragment: next_fragment }}">
 {{ next_text }}
@@ -157,6 +157,7 @@ const Presentation = Vue.component("presentation", {
   },
   updated() {
     scrollSlide();
+    $("#feedback-message").effect("shake");
     this.$root.$emit("update-navigation");
   }
 });

@@ -21,6 +21,7 @@
     "popper.js": "^1.14.0",
     "components-font-awesome": "^5.0.6",
     "vue": "^2.5.16",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "jquery-ui": "^1.12.1"
   }
 }
