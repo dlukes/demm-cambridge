@@ -90,3 +90,9 @@ strong{color:red}
 #tutorial-modal > div {
   max-width: 650px;
 }
+
+.oss-widget-interface {
+  position: fixed;
+  left: 0;
+  top: 30vh;
+}
