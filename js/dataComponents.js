@@ -27,6 +27,9 @@ const zoneTmp= Vue.component("zone-info",{
  
 function zoneInfo(zone)
 {
+  if (typeof zone === "undefined") {
+    return;
+  }
      $("#zoneInfo").html("");
     
     $("#zoneInfo").append("<p>This is a <b>"+zone.cat+"</b></p><p><b>Transcription: </b>"+zone.transcr+"</p>");
