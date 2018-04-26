@@ -1,6 +1,6 @@
 
 const personsTmp= Vue.component("notes-persons",{
-    template:"<div><div :class='[\"person\",{\"unlocked\":(p.p<=$route.params.page && p.s>=$route.params.slide && p.f>=$route.params.fragment)}]'  v-for='p in persons'><img :src='p.img'><div><h5>{{p.name}}</h5><p>{{p.description}}</p></div></div></div>",
+    template:"<div><div :class='[\"person\",{\"unlocked\":(((p.p*100)+(p.s*10)+p.f)<=(($route.params.page*100)+($route.params.slide*10)+$route.params.fragment))}]'  v-for='p in persons'><img :src='p.img'><div><h5>{{p.name}}</h5><p>{{p.description}}</p></div></div></div>",
     data(){return {persons:persons}},
     methods:{
         unlock(nm)
@@ -11,8 +11,9 @@ const personsTmp= Vue.component("notes-persons",{
 });
 
 
+
 const termsTmp= Vue.component("notes-terms",{
-    template:"<div><li  v-for='t in terms' :class='[\"term\",{\"locked\":(t.p>=$route.params.page && t.s>=$route.params.slide && t.f>=$route.params.fragment)}]'><b>{{t.name}}</b> - {{t.def}}</li></div>",
+    template:"<div><li  v-for='t in terms' :class='[\"term\",{\"unlocked\":((t.p*100+t.s*10+t.f)<=($route.params.page*100+$route.params.slide*10+$route.params.fragment))}]'><b>{{t.name}}</b> - {{t.def}}</li></div>",
     data(){return {terms:terms}}
     
 });
@@ -32,6 +33,8 @@ function zoneInfo(zone)
     
   $("#zoneInfo").append("<button class=btn-primary onClick='hideZones();drawPolygons(findZones(\"cat\",\""+zone.cat+"\"))'>Show</button>");
 }
+
+
 
 
 //data

@@ -131,7 +131,7 @@ Different uses of rubrication - one of the authorities. The first underlined wor
             content: "Correct! These are just a two ways of marking some places in text but there were many more.",
           },
             {
-            content: "Some authors wrote down their own notes, can you find any?",
+            content: "Some readers wrote down their own notes, can you find any?",
              enter:function(){focusOut(); hideZones();},    
                zones:["gloss"]
           },
