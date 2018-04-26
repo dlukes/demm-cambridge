@@ -19,20 +19,23 @@
 #msCanvas{position:absolute; left:0; top:0;}
 #msWrapper{position:absolute; width:1651px; height:2514px; background-color:"black"; }
 
-#sidebar-top {
-  height: 15vh;
-  overflow-x: hidden;
+#sidebar {
+  display: flex;
+  flex-direction: column;
+}
 
+#sidebar-top {
+  overflow-x: hidden;
 }
 
 #sidebar-middle {
-  height: 77vh;
+  flex: 1;
 }
 
 #sidebar-bottom {
-  height: 8vh;
   display: flex;
   padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .zoom{
@@ -72,18 +75,16 @@ strong{color:red}
   transform: translateX(-10rem);
 }
 
-/* TODO: smarter positioning */
 .prev-page {
   position: absolute;
   left: 1rem;
-  bottom: 2%;
+  bottom: 1.5rem;
 }
 
-/* TODO: smarter positioning */
 .next-page {
   position: absolute;
   right: 1rem;
-  bottom: 2%;
+  bottom: 1.5rem;
 }
 
 #tutorial-modal > div {
