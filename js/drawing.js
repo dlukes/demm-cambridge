@@ -14,9 +14,9 @@ function loadImg(img) {
 // displaying zones
 function dspZones() {
   clear = false;
-  jZones.forEach(function(zone) {
-    drawPolygon(zone);
-  });
+
+    drawPolygons(jZones);
+ 
 
   $("#hideZones").css({
     "display": "block"
@@ -26,19 +26,6 @@ function dspZones() {
   });
 }
 
-function hideZones() {
-  var c = document.getElementById("msCanvas");
-  var ctx = c.getContext("2d");
-  clear = true;
-  ctx.clearRect(0, 0, c.width, c.height);
-  $("#hideZones").css({
-    "display": "none"
-  });
-  $("#dspZones").css({
-    "display": "block"
-  });
-
-}
 
 function hideZones()
 {
@@ -156,7 +143,8 @@ function locatePolygon(mouse) {
     }
 
   });
-
+console.log(rZone);
+    $("zone-info").attr({"seezone":rZone});
   return rZone;
 
 
@@ -172,6 +160,16 @@ function zoomChng(zChng) {
     "transform": "scale(" + zm + "," + zm + ")"
   });
 
+  //  console.log(zm);
+   // console.log( parseInt($("#msCanvas").attr("width"))*zm);
+    
+var nw=1651*zm;    
+ var nh=2514*zm;  
+    
+   // console.log(nw + "--" + nh);
+    
+ $("#msWrapper").css({"width":nw,"height":nh});
+    
 
 }
 
@@ -190,17 +188,17 @@ function moveScreen(xy, ox, oy) {
 
 
 }
-<<<<<<< HEAD
+
     
-function scrollAdjust()
-{
-//   console.log( document.getElementById("manuscript").scrollTop); 
-}
+
 
 function findCorner(points)
 {
    var mx=10000;
     var my=10000;
+    
+    var tx=0;
+    var ty=0;
     
     points.forEach(function(pt){
        if(pt.x<mx)
@@ -212,35 +210,53 @@ function findCorner(points)
            {
                my=pt.y;
            }
+           
+        if(pt.x>tx)
+           {
+               tx=pt.x;
+           }
+        
+         if(pt.y>ty)
+           {
+               ty=pt.y;
+           }
     });
     
-    return {x:my, y:my};
+    return {mx:mx, my:my, tx:tx, ty:ty};
 }
 
 function focusOn(zone){
+    console.log("zooming in");
+    drawPolygon(zone);
     zm=parseFloat(1);
-    zoomChng(0);
-    moveScreen(findCorner(zone.points),100,100);
+    
+    
+    var xtr=findCorner(zone.points);
+    
+    var sx=xtr.tx-xtr.mx;
+    var sy=xtr.ty-xtr.my;
+    
+    var vw=parseInt($("#manuscript").css("width"));
+    var vh=parseInt($("#manuscript").css("height"));
+    
+    var ox=(vw-sx)/2;
+    var oy=(vh-sy)/2;
+    
+    var nzm=vw/6/sx;
+    
+    zoomChng(nzm);
+    moveScreen({x:xtr.mx,y:xtr.my},ox,oy);
     drawPolygon(zone);                        
                 };
 
 function focusOut(){
     zm=parseFloat(1);
     zoomChng(0);
+ document.getElementById("manuscript").scrollTop = 0;
+  document.getElementById("manuscript").scrollLeft = 0;
                             
                 };
  
 
 
-function focusOn(zone) {
-  zm = parseFloat(1);
-  zoomChng(0.8);
-  moveScreen(zone.points[0], 200, 200);
 
-};
-
-function focusOut() {
-  zm = parseFloat(1);
-  zoomChng(0);
-
-};

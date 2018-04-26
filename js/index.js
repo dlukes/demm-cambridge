@@ -36,7 +36,7 @@ function hasNext(coll, idx) {
 const Presentation = Vue.component("presentation", {
   template: `
 <div>
-<p v-for="f in fragments">{{ f }}</p>
+<p v-for="f in fragments" v-html="f"></p>
 <p :class="feedback_class">{{ feedback_message }}</p>
 <router-link :class="next_link_class" :to="{ name: 'main', params: { page: next_page, slide: next_slide, fragment: next_fragment }}">Next</router-link>
 </div>

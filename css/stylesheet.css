@@ -3,7 +3,7 @@
 }
 
 .content {
-  overflow: scroll;
+  overflow: auto;
 }
 
 #manuscript {
@@ -12,11 +12,12 @@
 }
 
 
-#mapCanvas{width:600px; height:600px; border:2px solid grey}
+#mapCanvas{width:600px; height:600px; border:2px solid grey;}
 
 #msCanvas, manuscript{transition:transform .5s; transform-origin:top left}
 
-#msCanvas{position:relative; left:0; top:0;}
+#msCanvas{position:absolute; left:0; top:0;}
+#msWrapper{position:absolute; width:1651px; height:2514px; background-color:"black"; }
 
 #sidebar-top {
   height: 15vh;
@@ -39,3 +40,15 @@
   left: 2rem;
   opacity: .8;
 }
+
+div.person{display:flex; flex-flow:row wrap; height:170px;border:1px solid grey; margin:0.1em}
+div.person img, img.portrait{width:40%;height:150px; margin:0.5em}
+div.person div{width:56%}
+div.person h5{color:blue; margin:0.1em}
+
+li.term b{color:blue}
+
+li.locked{color:rgba(0,0,0,0.5); filter:blur(4px) }
+
+div.locked img{visibility:hidden}
+div.locked p,div.locked h5{color:rgba(0,0,0,0.5); filter:blur(4px) }
