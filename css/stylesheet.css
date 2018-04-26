@@ -48,7 +48,9 @@ div.person h5{color:blue; margin:0.1em}
 
 li.term b{color:blue}
 
-li.locked{color:rgba(0,0,0,0.5); filter:blur(4px) }
+li.term{color:rgba(0,0,0,0.5); filter:blur(4px) }
+
+.unlocked{filter:blur(0px)}
 
 div.locked img{visibility:hidden}
 div.locked p,div.locked h5{color:rgba(0,0,0,0.5); filter:blur(4px) }
