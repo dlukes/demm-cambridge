@@ -27,11 +27,21 @@ function scrollSlide() {
 const Navigation = Vue.component("navigation", {
   template: `
 <div>
-<router-link class="prev-page" v-if="page > 0" :to="{ name: 'main', params: { page: page-1, slide: 0, fragment: 0 }}">« Previous page</router-link>
+<router-link class="prev-page" v-if="page > 0"
+  :to="{ name: 'main', params: { page: page-1, slide: 0, fragment: 0 }}">
+« Previous page
+</router-link>
 <div class="btn-group align-self-center" role="group">
-<router-link :class="{ active: idx === slide }" class="btn btn-outline-secondary" v-for="(s, idx) in pages[page].slides" :to="{ name: 'main', params: { page: page, slide: idx, fragment: 0 }}">{{ idx + 1}}</router-link>
+<router-link :class="{ active: idx === slide }" class="btn btn-outline-secondary"
+  v-for="(s, idx) in pages[page].slides"
+  :to="{ name: 'main', params: { page: page, slide: idx, fragment: 0 }}">
+{{ idx + 1}}
+</router-link>
 </div>
-<router-link class="next-page" v-if="hasNext(pages, page)" :to="{ name: 'main', params: { page: page+1, slide: 0, fragment: 0 }}">Next page »</router-link>
+<router-link class="next-page" v-if="hasNext(pages, page)"
+  :to="{ name: 'main', params: { page: page+1, slide: 0, fragment: 0 }}">
+Next page »
+</router-link>
 </div>
 `,
   data() {
@@ -62,7 +72,10 @@ const Presentation = Vue.component("presentation", {
 <p v-for="(f, idx) in fragments" v-bind:key="idx" v-html="f"></p>
 </transition-group>
 <p v-if="feedback_message" :class="feedback_class">{{ feedback_message }}</p>
-<router-link v-if="show_next" :to="{ name: 'main', params: { page: next_page, slide: next_slide, fragment: next_fragment }}">{{ next_text }}</router-link>
+<router-link v-if="show_next"
+  :to="{ name: 'main', params: { page: next_page, slide: next_slide, fragment: next_fragment }}">
+{{ next_text }}
+</router-link>
 </div>
 `,
   data() {
