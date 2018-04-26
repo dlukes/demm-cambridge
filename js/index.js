@@ -91,9 +91,12 @@ const Presentation = Vue.component("presentation", {
       let last_fragment = fragments[fragment];
       // set up link to next fragment
       if (hasNext(fragments, fragment)) {
+        this.next_page = page;
+        this.next_slide = slide;
         this.next_fragment = fragment + 1;
         this.next_text = "More";
       } else if (hasNext(slides, slide)) {
+        this.next_page = page;
         this.next_slide = slide + 1;
         this.next_fragment = 0;
         this.next_text = "Next slide";
