@@ -43,7 +43,7 @@
 }
 
 div.person{display:flex; flex-flow:row wrap; height:170px;border:1px solid grey; margin:0.1em}
-div.person img, img.portrait{width:40%;height:150px; margin:0.5em}
+div.person img, img.portrait{width:150px;height:150px; margin:0.5em}
 div.person div{width:56%}
 div.person h5{color:blue; margin:0.1em}
 
@@ -57,6 +57,10 @@ div.locked p,div.locked h5{color:rgba(0,0,0,0.5); filter:blur(4px) }
 .fragments-enter-active, .fragments-leave-active {
   transition: all 1s;
 }
+
+div.zoneInfo{border:1px solid grey; margin:0.1em}
+
+strong{color:red}
 
 .fragments-enter, .fragments-leave-to {
   opacity: 0;
