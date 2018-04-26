@@ -1,5 +1,6 @@
 //FUNCTIONS
-
+var iWidth;
+var iHeight;
 //initialization
 function loadImg(img) {
   $("#msCanvas").css({
@@ -9,6 +10,9 @@ function loadImg(img) {
     "width": img.size[0] + "px",
     "height": img.size[1] + "px"
   });
+    
+   iWidth=img.size[0];
+    iHeight=img.size[1];
 }
 
 // displaying zones
@@ -51,12 +55,14 @@ function drawPolygon(zone) {
 
 
   // ctx.fillStyle=zone.color;
-  ctx.fillStyle = "rgba(0,0,0,0.8)";
+  ctx.fillStyle = "rgba(0,0,0,0.6)";
 
   ctx.fillRect(0, 0, c.width, c.height);
   ctx.globalCompositeOperation = "destination-out";
   // ctx.globalAlpha=0.3;
 
+
+    
   ctx.beginPath();
   ctx.moveTo(zone.points[0].x, zone.points[0].y);
 
@@ -144,7 +150,7 @@ function locatePolygon(mouse) {
 
   });
 console.log(rZone);
-    $("zone-info").attr({"seezone":rZone});
+   zoneInfo(rZone);
   return rZone;
 
 
@@ -160,11 +166,25 @@ function zoomChng(zChng) {
     "transform": "scale(" + zm + "," + zm + ")"
   });
 
-  //  console.log(zm);
-   // console.log( parseInt($("#msCanvas").attr("width"))*zm);
+ var dw=parseInt($("#manuscript").css("width"));   
+var dh=parseInt($("#manuscript").css("height"));   
     
-var nw=1651*zm;    
- var nh=2514*zm;  
+    
+var nw=iWidth*zm;    
+ var nh=iHeight*zm;  
+    
+    if(nw<dw && nh<dh)
+        {
+           $("#msCanvas").css({
+    "overflow": "hidden"
+  }); 
+        }
+    else
+           {
+           $("#msCanvas").css({
+    "overflow": "scroll"
+  }); 
+        }
     
    // console.log(nw + "--" + nh);
     

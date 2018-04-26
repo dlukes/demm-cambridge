@@ -42,7 +42,7 @@
 }
 
 div.person{display:flex; flex-flow:row wrap; height:170px;border:1px solid grey; margin:0.1em}
-div.person img, img.portrait{width:40%;height:150px; margin:0.5em}
+div.person img, img.portrait{width:150px;height:150px; margin:0.5em}
 div.person div{width:56%}
 div.person h5{color:blue; margin:0.1em}
 
@@ -52,3 +52,7 @@ li.locked{color:rgba(0,0,0,0.5); filter:blur(4px) }
 
 div.locked img{visibility:hidden}
 div.locked p,div.locked h5{color:rgba(0,0,0,0.5); filter:blur(4px) }
+
+div.zoneInfo{border:1px solid grey; margin:0.1em}
+
+strong{color:red}

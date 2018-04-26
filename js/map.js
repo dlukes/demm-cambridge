@@ -13,7 +13,6 @@ var barva="red";
 var pruhlednost=0.5;
 
 
- 
 
 function unlockMarker(mid)
 {
@@ -29,8 +28,8 @@ function unlockMarker(mid)
 function initMap() {
 
   console.log("initializing map");  
-var mapOptions={center: new google.maps.LatLng(55.6691551,-1.8008945,15),
-                       zoom: 12,
+var mapOptions={center: new google.maps.LatLng(50.6691551,5.8008945,15),
+                       zoom: 5,
                        streetViewControl:false,
 					    zoomControl: true,
   mapTypeControl: true,
@@ -40,36 +39,12 @@ var mapOptions={center: new google.maps.LatLng(55.6691551,-1.8008945,15),
 
   map = new google.maps.Map(document.getElementById('mapCanvas'),
       mapOptions);
-      
-setMarkers();
-  
-}
-
-
-function setMarkers()
-{
-  markers["m1"]=new google.maps.Marker({ 
-                        position: new google.maps.LatLng(55.6691551,-1.8008945,15),
-                         map:map,
-                        // icon:ikonky[".$qe["zn"]."],
-                         title: 'marker',
-      visible:false
-                        
-});
+   
+places.forEach(function(pl){
+    console.log(pl.name);
+    setMarkers(pl);
+});    
     
-    markers["m1"].locked=false;
-    markers["m1"].id="m1";
-    
-des["m1"]=new google.maps.InfoWindow({ 
-                       content: 'description'
-                      }); 
- 
-
- 
-var kam=new google.maps.LatLng(0,0);
- 
-
-
  for(i in markers)
  { 
  console.log("activation loop");
@@ -83,6 +58,35 @@ var kam=new google.maps.LatLng(0,0);
 
 
  }
+  
+}
+
+
+function setMarkers(pl)
+{
+  markers[pl.id]=new google.maps.Marker({ 
+                        position: new google.maps.LatLng(pl.coords[0],pl.coords[1]),
+                         map:map,
+                        // icon:ikonky[".$qe["zn"]."],
+                         title: pl.name,
+      visible:true
+                        
+});
+    
+    markers[pl.id].locked=false;
+    markers[pl.id].id=pl.id;
+    
+des[pl.id]=new google.maps.InfoWindow({ 
+                       content: pl.description
+                      }); 
+ 
+
+ 
+//var kam=new google.maps.LatLng(0,0);
+ 
+
+
+
   
 }
 
