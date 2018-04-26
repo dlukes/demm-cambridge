@@ -59,17 +59,16 @@ div.person p,div.person h5{color:rgba(0,0,0,0.5); filter:blur(4px) }
 div.unlocked img{visibility:visible}
 div.unlocked p,div.unlocked h5{color:black; filter:blur(0) }
 
-.fragments-enter-active {
-  transition: all 1s;
-}
-
 div.zoneInfo{border:1px solid grey; margin:0.1em}
 
 strong{color:red}
 
+.fragments-enter-active {
+  transition: all 1s;
+}
+
 .fragments-enter {
   opacity: 0;
-  border-radius: 2rem;
   transform: translateX(-10rem);
 }
 
