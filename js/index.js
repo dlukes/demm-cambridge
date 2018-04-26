@@ -11,8 +11,10 @@ const neg_feedback = [
   "Better luck next time!",
 ];
 
-function getRandom(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
+function cycle(arr) {
+  let ans = arr.shift();
+  arr.push(ans);
+  return ans;
 }
 
 function hasNext(coll, idx) {
@@ -130,11 +132,11 @@ const Presentation = Vue.component("presentation", {
           let poly = locatePolygon(e);
           if (poly !== undefined && last_fragment.zones.includes(poly.id)) {
             drawPolygon(poly);
-            this.feedback_message = getRandom(pos_feedback);
+            this.feedback_message = cycle(pos_feedback);
             this.feedback_class = "text-success";
             this.show_next = true;
           } else {
-            this.feedback_message = getRandom(neg_feedback);
+            this.feedback_message = cycle(neg_feedback);
             this.feedback_class = "text-warning";
           }
         });
