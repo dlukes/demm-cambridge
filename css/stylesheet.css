@@ -32,6 +32,7 @@
 #sidebar-bottom {
   height: 8vh;
   display: flex;
+  padding-top: 1rem;
 }
 
 .zoom{
@@ -52,3 +53,26 @@ li.locked{color:rgba(0,0,0,0.5); filter:blur(4px) }
 
 div.locked img{visibility:hidden}
 div.locked p,div.locked h5{color:rgba(0,0,0,0.5); filter:blur(4px) }
+
+.fragments-enter-active, .fragments-leave-active {
+  transition: all 1s;
+}
+
+.fragments-enter, .fragments-leave-to {
+  opacity: 0;
+  background-color: yellow;
+  border-radius: 2rem;
+  transform: scale(2);
+}
+
+.prev-page {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+}
+
+.next-page {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+}
