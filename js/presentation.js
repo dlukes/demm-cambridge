@@ -1,11 +1,12 @@
+// a presentation consists of pages, corresponding to the scanned pages of a manuscript
 const pages = [{
         img: {
             url: "test.jpeg",
             size: [1651, 2514]
         },
-
         // each page can be explored in a number of slides
         slides: [{
+            // slides are divided into fragments
             fragments: [{
                     enter: function() {
                         moveScreen({
@@ -21,21 +22,16 @@ const pages = [{
                     content: "<p>We’d like to give you <b>a tour of the manuscript</b> so that you can see how it functioned and how medieval and renaissance intellectuals would work with its text. Be not afraid, you won’t need any reading skills in ancient tongues or handwriting - thankfully, our manuscript is all in English and transcribing it into modern script is somebody else’s job.</p> <p>To be able to look at the book from the readers’ perspective, let’s now try to untangle the snarl of marks, signs and scribbles. It’s through the users’ interventions that we can understand the story of a book across ages. We’ll start simple and take note of some basic techniques which the scribe and the reader would employ for ease of orientation and reference.</p>"
 
                 }
-
             ]
         }]
     },
-    // a presentation consists of pages, corresponding to the scanned pages of a manuscript
-    {
 
+    {
         img: {
             url: "luke_93V.jpeg",
             size: [1456, 2067]
         },
-
-        // each page can be explored in a number of slides
         slides: [{
-                // slides are divided into fragments
                 fragments: [{
                         enter: function() {
                             moveScreen({
@@ -65,7 +61,7 @@ Now that you know how paragraphs were marked, find another paramark and click on
 `,
                         enter: function() {
                             focusOut();
-                            hideZones()
+                            hideZones();
                         },
                         zones: ["paramark4", "paramark1", "paramark2", "paramark3"]
                     },
@@ -80,8 +76,8 @@ There are <b>four paramarks</b> here in total, two sitting on the outer edge of 
                                 y: 0
                             }, 0, 0);
                             zoomChng(-0.6);
-                            drawPolygons(findZones("cat", "paramark"))
-                        },
+                            drawPolygons(findZones("cat", "paramark"));
+                        }
 
                     },
                 ]
@@ -94,7 +90,7 @@ Now that you’ve checked out all the little blue spots on the page, let’s tur
                         enter: function() {
                             focusOut();
                             hideZones();
-                            focusOn(findZones("id", "rubrication1")[0])
+                            focusOn(findZones("id", "rubrication1")[0]);
                         }
                     },
                     {
@@ -103,7 +99,7 @@ Click on that loooong bit of text with red underlining. (It begins with... a <i>
 `,
                         enter: function() {
                             focusOut();
-                            hideZones()
+                            hideZones();
                         },
                         zones: ["rubrication2"]
                     },
@@ -114,8 +110,8 @@ This is called <i>rubrication</i> and is meant for emphasis - in medieval handwr
                         enter: function() {
                             focusOut();
                             hideZones();
-                            focusOn(findZones("id", "rubrication2")[0])
-                        },
+                            focusOn(findZones("id", "rubrication2")[0]);
+                        }
                     },
                     {
                         content: "Let’s now see what the rubricated passage is about... and why the scribe would want to emphasise it. We said at the beginning that we would not do the reading but rules are meant to be broken, so we’ll treat you to some medieval English! Click below and a modern transcription of the rubricated text will appear - can you try to read it and guess where the passage comes from?"
@@ -133,9 +129,8 @@ Here, you can see a shorter bit of rubricated text - which is not all from the B
                         enter: function() {
                             focusOut();
                             hideZones();
-                            focusOn(jZones[5])
-                        },
-
+                            focusOn(jZones[5]);
+                        }
                     },
                     {
                         content: "<div><div class='person unlocked'><img src='img/Ambrose.jpg'><div><p>It is Ambrose, or Ambrosius, a <i>church father</i> from the Italian city of Milan. Now a quiz on the church fathers! Just kidding. The whole four-word passage reads <strong>Ambrose here, taast deeth</strong>. So the first two words introduce the author whose commentary is cited - medieval intellectuals were very serious about their authorities!</p></div></div></div>"
@@ -154,7 +149,6 @@ Here, you can see a shorter bit of rubricated text - which is not all from the B
                         },
                         zones: ["manicule1"]
                     },
-
                     {
                         content: "When you look below the manicule, can you see another annotation just marking a point of interest in the text",
                         enter: function() {
@@ -164,7 +158,7 @@ Here, you can see a shorter bit of rubricated text - which is not all from the B
                         zones: ["crossed_lines1"]
                     },
                     {
-                        content: "Correct! These are just a two ways of marking some places in text but there were many more.",
+                        content: "Correct! These are just a two ways of marking some places in text but there were many more."
                     },
                     {
                         content: "Some readers wrote down their own notes, can you find any?",
@@ -179,19 +173,10 @@ Here, you can see a shorter bit of rubricated text - which is not all from the B
                         enter: function() {
                             focusOut();
                             hideZones();
-                        },
-
+                        }
                     }
-
-
-
-
-
-
-
-
                 ]
             }
         ]
-    },
+    }
 ];
