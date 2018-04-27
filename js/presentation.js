@@ -1,67 +1,37 @@
-const pages = [{
-        img: {
-            url: "test.jpeg",
-            size: [1651, 2514]
-        },
+const pages = [
+     {
+      img:{url:"test.jpeg",size:[1651,2514]},
 
-        // each page can be explored in a number of slides
-        slides: [{
-                fragments: [{
-                        enter: function() {
-                            moveScreen({
-                                x: 0,
-                                y: 0
-                            }, 0, 0);
-                            zoomChng(-0.6);
-                        },
-                        content: "<p>This is a page from a <b>late-medieval English commentary</b> on one of the books of the Bible, more precisely <b>the Gospel of Luke</b>. As you can see, it is incredibly messy. That’s because the <i>manuscript</i>  it comes from was produced sometime in <b>late 1300s</b> but then used and reused by many generations of readers with different interests and needs.</p>"
+    // each page can be explored in a number of slides
+    slides: [
+      {
+          fragments:[
+              {
+          enter:function(){moveScreen({x:0,y:0},0,0);zoomChng(-0.6);},
+          content:"<p>This is a page from a <b>late-medieval English commentary</b> on one of the books of the Bible, more precisely <b>the Gospel of Luke</b>. As you can see, it is incredibly messy. That’s because the <i>manuscript</i>  it comes from was produced sometime in <b>late 1300s</b> but then used and reused by many generations of readers with different interests and needs.</p>"
 
-                    },
-                    {
-                        content: "<p>We’d like to give you <b>a tour of the manuscript</b> so that you can see how it functioned and how medieval and renaissance intellectuals would work with its text. Be not afraid, you won’t need any reading skills in ancient tongues or handwriting - thankfully, our manuscript is all in English and transcribing it into modern script is somebody else’s job.</p> <p>To be able to look at the book from the readers’ perspective, let’s now try to untangle the snarl of marks, signs and scribbles. It’s through the users’ interventions that we can understand the story of a book across ages. We’ll start simple and take note of some basic techniques which the scribe and the reader would employ for ease of orientation and reference.</p>"
+      },
+              {
+                  content:"<p>We’d like to give you <b>a tour of the manuscript</b> so that you can see how it functioned and how medieval and renaissance intellectuals would work with its text. Be not afraid, you won’t need any reading skills in ancient tongues or handwriting - thankfully, our manuscript is all in English and transcribing it into modern script is somebody else’s job.</p> <p>To be able to look at the book from the readers’ perspective, let’s now try to untangle the snarl of marks, signs and scribbles. It’s through the users’ interventions that we can understand the story of a book across ages. We’ll start simple and take note of some basic techniques which the scribe and the reader would employ for ease of orientation and reference.</p>"
 
-                    }
+              }
+              
+          ]
+      }
+        ]},
+  // a presentation consists of pages, corresponding to the scanned pages of a manuscript
+  {
 
-                ]
-            },
-            {
-                fragments: [{
-                        content: "<p>First things last, a few notes on what you can expect from this website (and what you can’t!):</p> "
-                    },
-                    {
-                        content: "<p>You are going to follow an interactive presentation. This means that you will be learning new things step by step, along a given path which we have cleared for you through the briars and brambles of the manuscript.</p><p>In fact, we will be showing you quite a few different pages from various parts of the book. You can think of each page as a single glade where you are invited to stop and look around - but as we can’t let you wander back and get lost, please take your time to explore and admire whenever a page captures your interest. The undergrowth is dense, please have trust in your guide!</p>"
+      img:{url:"luke_93V.jpeg",size:[1456,2067]},
 
-                    },
-                    {
-                        content: "<p>You can see the window is divided into two parts. Your guide is on the right-hand side, you are reading from it right now - new information and tasks will appear here to help you advance. On the left, there will always be the image of a manuscript page. At certain points, you will be asked to click on parts of the page in order to progress in your journey. At other times, you will just read the guidance text here and click a “Next” button which will appear under it.</p><p>There will be a lot of new terms for you to pick up on your way. These will be marked in <i>italics</i>. If the burden becomes too heavy, there is a glossary for you to consult at any time. It’s ready to use under a separate tab in the upper right corner. There are some italicized terms for you in the next paragraph!</p>"
-
-                    },
-                    {
-                        content: "<p>You should learn a lot about the reading and writing of manuscripts during your journey (we hope!), but please be aware that the footpath bypasses one particularly perilous area of the forest: <i>paleography</i>, i.e., the science of reading handwritten scripts. If you want to be able to read medieval English <i>hands</i>, there are some nice online introductions such as this: https://www.nottingham.ac.uk/toolkits/play_2887. </p>"
-                    }
-                ]
-            }
-        ]
-    },
-    // a presentation consists of pages, corresponding to the scanned pages of a manuscript
-    {
-
-        img: {
-            url: "luke_93V.jpeg",
-            size: [1456, 2067]
-        },
-
-        // each page can be explored in a number of slides
-        slides: [{
-                // slides are divided into fragments
-                fragments: [{
-                        enter: function() {
-                            moveScreen({
-                                x: 0,
-                                y: 0
-                            }, 0, 0);
-                        },
-                        content: `
+    // each page can be explored in a number of slides
+    slides: [
+      {
+        // slides are divided into fragments
+        fragments: [
+          {
+              enter:function(){moveScreen({x:0,y:0},0,0);},
+            content: `
 As you can see already, this is a much simpler page than the one before. That’s handy as it allows us a clear look at some of the most basic elements - but we will come back to all the funny clutter later, promise. By the end, you will be able to look at the very first page again and identify most of the features and also their purpose.
 
 `
@@ -119,77 +89,72 @@ Now that you’ve checked out all the little blue spots on the page, let’s tur
                         content: `
 Click on that loooong bit of text with red underlining. (It begins with... a <i>paramark</i>!)
 `,
-                        enter: function() {
-                            focusOut();
-                            hideZones()
-                        },
-                        zones: ["rubrication2"]
-                    },
-                    {
-                        content: `
-This is called <i>rubrication</i> and is meant for emphasis - in medieval handwriting, <b>bold</b> and <i>italics</i> were not an option but <strong>colour-coding</strong> clearly was. The term comes from Latin, <i>ruber</i> means “red” and <i>rubrico</i> means “to colour red”.
+              enter:function(){focusOut(); hideZones()},
+              zones:["rubrication2"]
+          },
+            {
+            content: `
+This is called <i>rubrication</i> and is meant for emphasis - in medieval handwriting, <b>bold</b> and <i>italics</i> were not an option but <strong>colour-coding</strong> clearly was. The term comes from Latin, <i>ruber</i> means “red” and <i>rubrico</i> means “to colour red”. The word <i>rubrica</i> caught on in the 13th century and is still used today for “a title” or “a heading”.
 `,
-                        enter: function() {
-                            focusOut();
-                            hideZones();
-                            focusOn(findZones("id", "rubrication2")[0])
-                        },
-                    },
-                    {
-                        content: `
-Different uses of rubrication - one of the authorities. The first underlined word is the name of a famous man. Can you read who the authority is?
+                 enter:function(){focusOut(); hideZones(); focusOn(findZones("id","rubrication2")[0])},
+          },
+            {
+                content:"Let’s now see what the rubricated passage is about... and why the scribe would want to emphasise it. We said at the beginning that we would not do the reading but rules are meant to be broken, so we’ll treat you to some medieval English! Click below and a modern transcription of the rubricated text will appear - can you try to read it and guess where the passage comes from?"
+            },
+            {
+                content:"<strong>And Y seie to you, verily ther ben summe stondynge here, whiche schulen not taste deeth, til thei seen the rewme of God. And it was don aftir these wordis almest eiyte daies, and he took Petre and James and Joon, and he stiede in to an hil, to preye. And while he preiede, the licnesse of his cheer was chaungid, and his clothing was whit schynynge.</strong>"
+            },
+            {
+                content:"You’re right, it is The Gospel of Luke! 9:27-29, if you’re asking. Why would the scribe emphasise it? The Word of God deserves it, I hear you say, but there is a down-to-earth, practical reason too. It has to do with the structure of the book, in which a learned commentary always immediately follows a passage from the Scripture. The rubrication would save the theology-minded readers precious time as it serves to distinguish the Biblical text from those clever comments."
+            },
+         {
+            content: `
+Here, you can see a shorter bit of rubricated text - which is not all from the Bible! The rubrication here introduces a comment from a certain famous theologian, a well-respected <i>auctoritas</i>, or an authority on the interpretation of the bible. The very first underlined word is his name - can you read it?
 `,
-                        enter: function() {
-                            focusOut();
-                            hideZones();
-                            focusOn(jZones[5])
-                        },
-
-                    },
-                    {
-                        content: `
-<img src="img/Ambrose.jpg" class="portrait"> Next up, a quiz on church fathers! Just joking.
-`,
-
-                    },
-                    {
-                        content: " As far as we can tell, paramarks and rubrication were the scribe's work. Now let's see what the readers did on the page! Can you find a hand with a pointing finger?",
-                        enter: function() {
-                            focusOut();
-                            hideZones();
-                        },
-                        zones: ["manicule1"]
-                    },
-
-                    {
-                        content: "When you look below the manicule, can you see another annotation just marking a point of interest in the text",
-                        enter: function() {
-                            focusOut();
-                            hideZones();
-                        },
-                        zones: ["crossed_lines1"]
-                    },
-                    {
-                        content: "Correct! These are just a two ways of marking some places in text but there were many more.",
-                    },
-                    {
-                        content: "Some readers wrote down their own notes, can you find any?",
-                        enter: function() {
-                            focusOut();
-                            hideZones();
-                        },
-                        zones: ["gloss"]
-                    },
-                    {
-                        content: "THIS IS ALL WE HAVE SO FAR",
-                        enter: function() {
-                            focusOut();
-                            hideZones();
-                        },
-
-                    }
-                ]
-            }
+              enter:function(){focusOut(); hideZones(); focusOn(jZones[5])},
+             
+          },
+                {
+            content: "<div><div class='person unlocked'><img src='img/Ambrose.jpg'><div><p>It is Ambrose, or Ambrosius, a <i>church father</i> from the Italian city of Milan. Now a quiz on the church fathers! Just kidding. The whole four-word passage reads <strong>Ambrose here, taast deeth</strong>. So the first two words introduce the author whose commentary is cited - medieval intellectuals were very serious about their authorities!</p></div></div></div>"
+  
+          },
+        {
+            content: "The other two words, “taste death”, refer back to the biblical passage so that the reader can see what part exactly Ambrose is commenting on. This is an economical way to allow the reader easy navigation on the page, there and back  - the modern term for this type of reading is <i>discursive reading</i>"
+  
+          },
+        
+            {
+            content: " As far as we can tell, paramarks and rubrication were the scribe's work. Now let's see what the readers did on the page! Can you find a hand with a pointing finger?",
+             enter:function(){focusOut(); hideZones();},    
+               zones:["manicule1"]
+          },
+            
+            {
+            content: "When you look below the manicule, can you see another annotation just marking a point of interest in the text",
+             enter:function(){focusOut(); hideZones();},    
+               zones:["crossed_lines1"]
+          },
+             {
+            content: "Correct! These are just a two ways of marking some places in text but there were many more.",
+          },
+            {
+            content: "Some readers wrote down their own notes, can you find any?",
+             enter:function(){focusOut(); hideZones();},    
+               zones:["gloss"]
+          },
+             {
+            content: "THIS IS ALL WE HAVE SO FAR",
+             enter:function(){focusOut(); hideZones();},    
+             
+          }
+           
+           
+           
+            
+          
+            
+           
+            
         ]
     },
 ];
