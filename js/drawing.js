@@ -160,7 +160,10 @@ console.log(rZone);
 
 function zoomChng(zChng) {
   // console.log(zChng);
-  zm += parseFloat(zChng);
+  console.log("before:", zm);
+  let newZoomLevel = zm + parseFloat(zChng);
+  zm = newZoomLevel >= .4 ? newZoomLevel : .4;
+  console.log("after:", zm);
 
   $("#msCanvas").css({
     "transform": "scale(" + zm + "," + zm + ")"
