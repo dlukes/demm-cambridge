@@ -35,58 +35,45 @@ const pages = [
 As you can see already, this is a much simpler page than the one before. That’s handy as it allows us a clear look at some of the most basic elements - but we will come back to all the funny clutter later, promise. By the end, you will be able to look at the very first page again and identify most of the features and also their purpose.
 
 `
-                    },
-                    {
-                        content: `
+          },
+          {
+            content: `
 One of the ways the manuscript differs from a modern printed book is <b>the absence of paragraphs</b> as we know them. You can see that indents were not a thing, there are only two continuous columns. Yet still, the text actually is organised into paragraphs, only marked differently, with coloured signs we call <i>paramarks</i> of <i>parafs</i>.
 
 `,
-                        enter: function() {
-                            console.log("focusing on paramark");
-                            focusOn(jZones[0]);
-                        }
+            enter: function() {
+              console.log("focusing on paramark");
+              focusOn(jZones[0]);
+            }
 
-                    },
-                    {
-                        content: `
+          },
+          {
+            content: `
 Now that you know how paragraphs were marked, find another paramark and click on it.
 `,
-                        enter: function() {
-                            focusOut();
-                            hideZones()
-                        },
-                        zones: ["paramark4", "paramark1", "paramark2", "paramark3"]
-                    },
-                    {
-                        content: `
+              enter:function(){focusOut(); hideZones()},
+              zones:["paramark4","paramark1","paramark2","paramark3"]
+          },
+              {
+            content: `
 There are <b>four paramarks</b> here in total, two sitting on the outer edge of the column, two inside. Marked by a coloured sign, a paragraph could therefore begin right where the last one ended. This saved space - and money! Parchment and paper were price-prohibitive.
 
 `,
-                        enter: function() {
-                            moveScreen({
-                                x: 0,
-                                y: 0
-                            }, 0, 0);
-                            zoomChng(-0.6);
-                            drawPolygons(findZones("cat", "paramark"))
-                        },
-
-                    },
-                ]
-            },
-            {
-                fragments: [{
-                        content: `
+              enter:function(){moveScreen({x:0,y:0},0,0);zoomChng(-0.6);drawPolygons(findZones("cat","paramark"))},
+            
+          },
+        ]
+      },
+      {
+        fragments: [
+          {
+            content: `
 Now that you’ve checked out all the little blue spots on the page, let’s turn to <strong>red</strong>! See the red lines here and there?
 `,
-                        enter: function() {
-                            focusOut();
-                            hideZones();
-                            focusOn(findZones("id", "rubrication1")[0])
-                        }
-                    },
-                    {
-                        content: `
+              enter:function(){focusOut(); hideZones(); focusOn(findZones("id","rubrication1")[0])}
+          },
+          {
+            content: `
 Click on that loooong bit of text with red underlining. (It begins with... a <i>paramark</i>!)
 `,
               enter:function(){focusOut(); hideZones()},
@@ -156,5 +143,7 @@ Here, you can see a shorter bit of rubricated text - which is not all from the B
            
             
         ]
-    },
+      }
+    ]
+  },
 ];
