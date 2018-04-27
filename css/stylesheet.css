@@ -45,7 +45,7 @@
   opacity: .8;
 }
 
-div.person{display:flex; flex-flow:row wrap; height:170px;border:1px solid grey; margin:0.1em}
+div.person{display:flex; border:1px solid grey; margin:0.1em}
 div.person img, img.portrait{width:150px;height:150px; margin:0.5em}
 div.person div{width:56%}
 div.person h5{color:blue; margin:0.1em}
