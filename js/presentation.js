@@ -17,25 +17,7 @@ const pages = [
               }
               
           ]
-      },
-        {
-            fragments:[
-                {
-                    content:"<p>First things last, a few notes on what you can expect from this website (and what you can’t!):</p> "
-                },
-                {
-                    content:"<p>You are going to follow an interactive presentation. This means that you will be learning new things step by step, along a given path which we have cleared for you through the briars and brambles of the manuscript.</p><p>In fact, we will be showing you quite a few different pages from various parts of the book. You can think of each page as a single glade where you are invited to stop and look around - but as we can’t let you wander back and get lost, please take your time to explore and admire whenever a page captures your interest. The undergrowth is dense, please have trust in your guide!</p>"
- 
-                },
-                {
-                    content:"<p>You can see the window is divided into two parts. Your guide is on the right-hand side, you are reading from it right now - new information and tasks will appear here to help you advance. On the left, there will always be the image of a manuscript page. At certain points, you will be asked to click on parts of the page in order to progress in your journey. At other times, you will just read the guidance text here and click a “Next” button which will appear under it.</p><p>There will be a lot of new terms for you to pick up on your way. These will be marked in <i>italics</i>. If the burden becomes too heavy, there is a glossary for you to consult at any time. It’s ready to use under a separate tab in the upper right corner. There are some italicized terms for you in the next paragraph!</p>"
-
-                },
-                {
-                    content:"<p>You should learn a lot about the reading and writing of manuscripts during your journey (we hope!), but please be aware that the footpath bypasses one particularly perilous area of the forest: <i>paleography</i>, i.e., the science of reading handwritten scripts. If you want to be able to read medieval English <i>hands</i>, there are some nice online introductions such as this: https://www.nottingham.ac.uk/toolkits/play_2887. </p>"
-                }
-            ]
-        }
+      }
         ]},
   // a presentation consists of pages, corresponding to the scanned pages of a manuscript
   {
@@ -99,22 +81,33 @@ Click on that loooong bit of text with red underlining. (It begins with... a <i>
           },
             {
             content: `
-This is called <i>rubrication</i> and is meant for emphasis - in medieval handwriting, <b>bold</b> and <i>italics</i> were not an option but <strong>colour-coding</strong> clearly was. The term comes from Latin, <i>ruber</i> means “red” and <i>rubrico</i> means “to colour red”.
+This is called <i>rubrication</i> and is meant for emphasis - in medieval handwriting, <b>bold</b> and <i>italics</i> were not an option but <strong>colour-coding</strong> clearly was. The term comes from Latin, <i>ruber</i> means “red” and <i>rubrico</i> means “to colour red”. The word <i>rubrica</i> caught on in the 13th century and is still used today for “a title” or “a heading”.
 `,
                  enter:function(){focusOut(); hideZones(); focusOn(findZones("id","rubrication2")[0])},
           },
+            {
+                content:"Let’s now see what the rubricated passage is about... and why the scribe would want to emphasise it. We said at the beginning that we would not do the reading but rules are meant to be broken, so we’ll treat you to some medieval English! Click below and a modern transcription of the rubricated text will appear - can you try to read it and guess where the passage comes from?"
+            },
+            {
+                content:"<strong>And Y seie to you, verily ther ben summe stondynge here, whiche schulen not taste deeth, til thei seen the rewme of God. And it was don aftir these wordis almest eiyte daies, and he took Petre and James and Joon, and he stiede in to an hil, to preye. And while he preiede, the licnesse of his cheer was chaungid, and his clothing was whit schynynge.</strong>"
+            },
+            {
+                content:"You’re right, it is The Gospel of Luke! 9:27-29, if you’re asking. Why would the scribe emphasise it? The Word of God deserves it, I hear you say, but there is a down-to-earth, practical reason too. It has to do with the structure of the book, in which a learned commentary always immediately follows a passage from the Scripture. The rubrication would save the theology-minded readers precious time as it serves to distinguish the Biblical text from those clever comments."
+            },
          {
             content: `
-Different uses of rubrication - one of the authorities. The first underlined word is the name of a famous man. Can you read who the authority is?
+Here, you can see a shorter bit of rubricated text - which is not all from the Bible! The rubrication here introduces a comment from a certain famous theologian, a well-respected <i>auctoritas</i>, or an authority on the interpretation of the bible. The very first underlined word is his name - can you read it?
 `,
               enter:function(){focusOut(); hideZones(); focusOn(jZones[5])},
              
           },
         {
-            content: `
-<img src="img/Ambrose.jpg" class="portrait"> Next up, a quiz on church fathers! Just joking.
-`,
-               
+            content: "The other two words, “taste death”, refer back to the biblical passage so that the reader can see what part exactly Ambrose is commenting on. This is an economical way to allow the reader easy navigation on the page, there and back  - the modern term for this type of reading is <i>discursive reading</i>"
+  
+          },
+            {
+            content: "<div><div class='person unlocked'><img src='img/Ambrose.jpg'><div><p>It is Ambrose, or Ambrosius, a <i>church father</i> from the Italian city of Milan. Now a quiz on the church fathers! Just kidding. The whole four-word passage reads <strong>Ambrose here, taast deeth</strong>. So the first two words introduce the author whose commentary is cited - medieval intellectuals were very serious about their authorities!</p></div></div></div>"
+  
           },
             {
             content: " As far as we can tell, paramarks and rubrication were the scribe's work. Now let's see what the readers did on the page! Can you find a hand with a pointing finger?",
