@@ -101,14 +101,15 @@ Here, you can see a shorter bit of rubricated text - which is not all from the B
               enter:function(){focusOut(); hideZones(); focusOn(jZones[5])},
              
           },
+                {
+            content: "<div><div class='person unlocked'><img src='img/Ambrose.jpg'><div><p>It is Ambrose, or Ambrosius, a <i>church father</i> from the Italian city of Milan. Now a quiz on the church fathers! Just kidding. The whole four-word passage reads <strong>Ambrose here, taast deeth</strong>. So the first two words introduce the author whose commentary is cited - medieval intellectuals were very serious about their authorities!</p></div></div></div>"
+  
+          },
         {
             content: "The other two words, “taste death”, refer back to the biblical passage so that the reader can see what part exactly Ambrose is commenting on. This is an economical way to allow the reader easy navigation on the page, there and back  - the modern term for this type of reading is <i>discursive reading</i>"
   
           },
-            {
-            content: "<div><div class='person unlocked'><img src='img/Ambrose.jpg'><div><p>It is Ambrose, or Ambrosius, a <i>church father</i> from the Italian city of Milan. Now a quiz on the church fathers! Just kidding. The whole four-word passage reads <strong>Ambrose here, taast deeth</strong>. So the first two words introduce the author whose commentary is cited - medieval intellectuals were very serious about their authorities!</p></div></div></div>"
-  
-          },
+        
             {
             content: " As far as we can tell, paramarks and rubrication were the scribe's work. Now let's see what the readers did on the page! Can you find a hand with a pointing finger?",
              enter:function(){focusOut(); hideZones();},    

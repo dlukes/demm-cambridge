@@ -19,7 +19,7 @@ const termsTmp= Vue.component("notes-terms",{
 });
 
 const zoneTmp= Vue.component("zone-info",{
-    template:"<div class=zoneInfo><p>This is a <b>{{seezone.cat}}</b></p><p><b>Transcription: </b>{{seezone}}</p></div>",
+    template:"<div class='panel panel-info'><div class='panel-heading'>This is a <b>{{seezone.cat}}</b></div><div class='panel-body'><b>Transcription: </b>{{seezone}}</div></div>",
     props:["seezone"]
     
 });
@@ -29,9 +29,8 @@ function zoneInfo(zone)
 {
      $("#zoneInfo").html("");
     
-    $("#zoneInfo").append("<p>This is a <b>"+zone.cat+"</b></p><p><b>Transcription: </b>"+zone.transcr+"</p>");
-    
-  $("#zoneInfo").append("<button class=btn-primary onClick='hideZones();drawPolygons(findZones(\"cat\",\""+zone.cat+"\"))'>Show</button>");
+    $("#zoneInfo").append("<div class='panel panel-info'><div class='panel-heading'>This is a <b>"+zone.cat+"</b></div><div class='panel-body'><b>Transcription: </b>"+zone.transcr+"</div><div class='panel-heading'><button class=btn-primary onClick='hideZones();drawPolygons(findZones(\"cat\",\""+zone.cat+"\"))'>Show</button></div></div>");
+ 
 }
 
 
