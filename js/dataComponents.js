@@ -54,7 +54,7 @@ var terms=[
      {id:"manuscript",locked:true, name:"Manuscript", def:"Literally “written by hand.” Abbreviated as MS (singular) or MSS (plural).", p:1, s:1, f:1},
      {id:"hand",locked:true, name:"Hand", def:"The writing of an individual scribe, with individual characteristics.", p:1, s:1, f:1},
     {id:"paraf",locked:false, name:"Paraf", def:"A symbol  marking a paragraph/ a section in the continuous text.", p:1, s:0, f:2},
-    {id:"paramark",locked:true, name:"Rubrication", def:"Another word for paraf, see above.", p:1, s:0, f:2},
+    {id:"paramark",locked:true, name:"Paramark", def:"Another word for paraf, see above.", p:1, s:0, f:2},
     {id:"rubrication",locked:true, name:"Rubrication", def:"Using red colour to emphasize or mark certain parts of the text.", p:1, s:1, f:1},
      {id:"rubrico",locked:true, name:"Rubrico", def:"Latin, “to colour red”", p:1, s:1, f:1},
      {id:"ruber",locked:true, name:"Ruber", def:"Latin word meaning “red”.", p:1, s:1, f:1}

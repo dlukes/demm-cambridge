@@ -129,7 +129,7 @@ Here, you can see a shorter bit of rubricated text - which is not all from the B
                         enter: function() {
                             focusOut();
                             hideZones();
-                            focusOn(jZones[5]);
+                            focusOn(findZones("id", "rubrication_ambrose")[0]);
                         }
                     },
                     {
