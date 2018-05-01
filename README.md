@@ -2,7 +2,7 @@ Exploring medieval manuscripts
 ==============================
 
 **NOTE:** There might be a live version of this running at
-<https://trnka.korpus.cz/~lukes/demm-cambridge/>.
+<https://dlukes.github.io/demm-cambridge/>.
 
 This is a proof-of-concept app geared towards leisure learners who would like
 to explore the intricacies of medieval manuscripts. The main feature is a
